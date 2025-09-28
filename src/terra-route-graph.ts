@@ -133,6 +133,53 @@ export class TerraRouteGraph {
     }
 
     /**
+     * Gets the average length of all edges in the graph based on the length of the LineString.
+     * If no edges exist, it returns -1.
+     * @returns The average length of all edges in meters, or -1 if no edges exist.
+     */
+    getAverageEdgeLength(): number {
+        const edges = this.getEdges().features;
+        if (edges.length === 0) {
+            return -1;
+        }
+        const totalLength = edges.reduce((sum, edge) => sum + routeLength(edge), 0);
+        return totalLength / edges.length;
+    }
+
+    /**
+     * Gets the degree of each node in the graph.
+     * @returns A Map where the key is a coordinate string "lng,lat" and the value is the degree.
+     */
+    getNodeDegrees(): Record<string, number> {
+        const degrees: Record<string, number> = {};
+        const edges = this.getEdges().features;
+
+        for (const edge of edges) {
+            const [start, end] = edge.geometry.coordinates;
+            const startKey = `${start[0]},${start[1]}`;
+            const endKey = `${end[0]},${end[1]}`;
+
+            degrees[startKey] = (degrees[startKey] || 0) + 1;
+            degrees[endKey] = (degrees[endKey] || 0) + 1;
+        }
+
+        return degrees;
+    }
+
+    /**
+     * Gets summary statistics for node degrees (min, max, average).
+     */
+    getNodeDegreeStats(): { min: number, max: number, avg: number } {
+        const degrees = Object.values(this.getNodeDegrees());
+        if (degrees.length === 0) return { min: 0, max: 0, avg: 0 };
+
+        const min = Math.min(...degrees);
+        const max = Math.max(...degrees);
+        const avg = degrees.reduce((a, b) => a + b, 0) / degrees.length;
+        return { min, max, avg };
+    }
+
+    /**
      * Gets the length of the shortest edge in the graph based on the length of the LineString.
      * If no edges exist, it returns -1.
      * @returns The length of the shortest edge in meters, or 0 if no edges exist.
