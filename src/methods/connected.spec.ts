@@ -1,7 +1,7 @@
 import { FeatureCollection, LineString } from 'geojson';
 import { graphGetConnectedComponentCount, graphGetConnectedComponents } from './connected';
-import { generateTreeFeatureCollection } from '../../test-utils/generate-network';
-import { createFeatureCollection, createLineStringFeature } from '../../test-utils/create';
+import { generateTreeFeatureCollection } from '../test-utils/generate-network';
+import { createFeatureCollection, createLineStringFeature } from '../test-utils/create';
 import { readFileSync, writeFileSync } from 'fs';
 import { unifyCloseCoordinates } from './unify';
 

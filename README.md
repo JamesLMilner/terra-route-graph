@@ -6,7 +6,7 @@
 
 <p></p>
 
-Terra Route Graph is a helper class to Terra Route (a fast shortest path finding library). It allows
+Terra Route Graph is a helper class to [Terra Route](https://www.github.com/JamesLMilner/terra-route) (a fast shortest path finding library). It provides functionality for better understanding your graphs that you use with Terra Route.
 
 ## Install
 

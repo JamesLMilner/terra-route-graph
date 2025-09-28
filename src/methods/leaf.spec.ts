@@ -1,5 +1,5 @@
 import { FeatureCollection, LineString } from 'geojson';
-import { createFeatureCollection } from '../../test-utils/create';
+import { createFeatureCollection } from '../test-utils/create';
 import { getLeafEdges } from './leaf';
 
 describe('getLeafEdges', () => {

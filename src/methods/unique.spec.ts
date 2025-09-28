@@ -2,7 +2,7 @@ import { FeatureCollection, LineString } from 'geojson';
 import { readFileSync } from 'fs';
 import { graphGetUniqueSegments } from './unique';
 import { graphGetNodeAndEdgeCount } from './nodes';
-import { createFeatureCollection } from '../../test-utils/create';
+import { createFeatureCollection } from '../test-utils/create';
 
 describe('graphGetUniqueSegments', () => {
     it('returns an empty feature collection for empty input', () => {

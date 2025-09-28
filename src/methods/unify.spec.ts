@@ -1,9 +1,9 @@
 import { FeatureCollection, LineString } from 'geojson';
 import { unifyCloseCoordinates } from './unify';
-import { getReasonIfLineStringInvalid } from '../../test-utils/utils';
+import { getReasonIfLineStringInvalid } from '../test-utils/utils';
 import { graphGetConnectedComponentCount } from './connected';
 import { graphGetNodeAndEdgeCount } from './nodes';
-import { createFeatureCollection, createLineStringFeature } from '../../test-utils/create';
+import { createFeatureCollection, createLineStringFeature } from '../test-utils/create';
 
 describe('unifyCloseCoordinates', () => {
     describe('for an empty feature collection', () => {

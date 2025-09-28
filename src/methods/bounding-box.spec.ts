@@ -1,6 +1,6 @@
 import { FeatureCollection, LineString } from 'geojson';
 import { getNetworkInBoundingBox, BoundingBox } from './bounding-box';
-import { createFeatureCollection, createLineStringFeature } from '../../test-utils/create';
+import { createFeatureCollection, createLineStringFeature } from '../test-utils/create';
 
 describe('getNetworkInBoundingBox', () => {
     describe('with an empty feature collection', () => {

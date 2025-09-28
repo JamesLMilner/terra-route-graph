@@ -1,6 +1,6 @@
 import { FeatureCollection, LineString } from 'geojson';
 import { graphGetNodesAsPoints, graphGetNodeAndEdgeCount } from './nodes';
-import { createFeatureCollection, createLineStringFeature } from '../../test-utils/create';
+import { createFeatureCollection, createLineStringFeature } from '../test-utils/create';
 
 describe('graphGetNodeAndEdgeCount', () => {
     describe('for an empty feature collection', () => {
